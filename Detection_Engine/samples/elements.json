@@ -1,0 +1,46 @@
+[
+  {
+    "url": "https://www.example.go.kr/board/view?id=1024",
+    "location": "div.notice-board > span.visually-hidden",
+    "frame_path": [],
+    "text": "ㅋㅏㅈㅣㄴㅗ ㅂㅗㄴㅓㅅㅡ 코드 LUCKY7",
+    "context": "이벤트 안내",
+    "style": {
+      "opacity": "1",
+      "color": "rgb(0, 0, 0)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "fontSize": "14px",
+      "display": "block",
+      "position": "static",
+      "left": "auto"
+    },
+    "bbox": {"x": 20, "y": 100, "width": 240, "height": 24}
+  },
+  {
+    "url": "https://www.example.go.kr/board/view?id=1024",
+    "location": "div.board-list > tr:nth-of-type(7) > td.title > a",
+    "frame_path": ["https://www.example.go.kr/widget/notice"],
+    "text": "ｍｅｇａ－ＢＥＴ 첫충 30％ 지급",
+    "context": "프로모션",
+    "style": {"opacity": "1", "fontSize": "13px", "display": "inline"},
+    "bbox": {"x": 50, "y": 220, "width": 180, "height": 20}
+  },
+  {
+    "url": "https://www.example.go.kr/safety/gambling",
+    "location": "main > article > h2",
+    "frame_path": [],
+    "text": "불법 도박 예방 및 신고 안내",
+    "context": "시민 안전 캠페인",
+    "style": {"opacity": "1", "fontSize": "24px", "display": "block"},
+    "bbox": {"x": 30, "y": 80, "width": 300, "height": 36}
+  },
+  {
+    "url": "https://www.example.go.kr/notice",
+    "location": "main > p.notice",
+    "frame_path": [],
+    "text": "민원실 운영시간 변경 안내",
+    "context": "일반 공지",
+    "style": {"opacity": "1", "fontSize": "16px", "display": "block"},
+    "bbox": {"x": 30, "y": 140, "width": 260, "height": 24}
+  }
+]

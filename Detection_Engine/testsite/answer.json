@@ -1,0 +1,200 @@
+{
+  "meta": {
+    "entry_url": "http://localhost:8000/index.html",
+    "note": "is_violation=false 항목은 탐지되면 안 되는 정상 요소"
+  },
+  "findings": [
+    {
+      "id": "a_001",
+      "url": "http://localhost:8000/index.html",
+      "is_violation": true,
+      "location": "p.nl-memo",
+      "evidence_text": "ㅋㅏㅈㅣㄴㅗ ㅂㅗㄴㅓㅅㅡ 코드 LUCKY7",
+      "technique": "JAMO"
+    },
+    {
+      "id": "a_002",
+      "url": "http://localhost:8000/index.html",
+      "is_violation": true,
+      "location": "p.ft-evt",
+      "evidence_text": "ｍｅｇａ－ＢＥＴ 첫충 30％ 지급",
+      "technique": "HOMOGLYPH"
+    },
+    {
+      "id": "a_003",
+      "url": "http://localhost:8000/index.html",
+      "is_violation": true,
+      "location": "iframe[src=\"http://localhost:8000/frame.html\"] >>> div.fr-ghost",
+      "evidence_text": "먹튀검증 안전놀이터 상담 텔레그램 @promo_777",
+      "technique": "TRANSPARENT"
+    },
+    {
+      "id": "a_004",
+      "url": "http://localhost:8000/index.html",
+      "is_violation": true,
+      "location": "iframe[src=\"http://localhost:8000/frame.html\"] >>> iframe[src=\"http://localhost:8000/frame2.html\"] >>> div.fr2-off",
+      "evidence_text": "무료 슬롯 체험 바로가기",
+      "technique": "OFFSCREEN"
+    },
+    {
+      "id": "a_005",
+      "url": "http://localhost:8000/board.html",
+      "is_violation": true,
+      "location": "table.board-table tbody tr:nth-of-type(3) td.col-title a",
+      "evidence_text": "оnlinе саsinо bonus 안내",
+      "technique": "HOMOGLYPH"
+    },
+    {
+      "id": "a_006",
+      "url": "http://localhost:8000/board.html",
+      "is_violation": true,
+      "location": "table.board-table tbody tr:nth-of-type(5) td.col-title span.ct-clear",
+      "evidence_text": "먹튀검증 안전놀이터 상담 텔레그램 @promo_777",
+      "technique": "TRANSPARENT"
+    },
+    {
+      "id": "a_007",
+      "url": "http://localhost:8000/board.html?page=2",
+      "is_violation": true,
+      "location": "table.board-table tbody tr:nth-of-type(2) td.col-title span.fs-zero",
+      "evidence_text": "무료 슬롯 체험 바로가기",
+      "technique": "OFFSCREEN"
+    },
+    {
+      "id": "a_008",
+      "url": "http://localhost:8000/view.html?id=1",
+      "is_violation": true,
+      "location": "article.post-body p.bd-ghost",
+      "evidence_text": "먹튀검증 안전놀이터 상담 텔레그램 @promo_777",
+      "technique": "TRANSPARENT"
+    },
+    {
+      "id": "a_009",
+      "url": "http://localhost:8000/view.html?id=2",
+      "is_violation": true,
+      "location": "ul.cmt-list li:nth-of-type(2) span.cmt-off",
+      "evidence_text": "무료 슬롯 체험 바로가기",
+      "technique": "OFFSCREEN"
+    },
+    {
+      "id": "a_010",
+      "url": "http://localhost:8000/view.html?id=3",
+      "is_violation": true,
+      "location": "article.post-body span.mix-hid",
+      "evidence_text": "ㅋㅏㅈㅣㄴㅗ ㅂㅗㄴㅓㅅㅡ 코드 LUCKY7",
+      "technique": "JAMO"
+    },
+    {
+      "id": "a_011",
+      "url": "http://localhost:8000/view.html?id=3",
+      "is_violation": true,
+      "location": "article.post-body span.mix-hid",
+      "evidence_text": "ㅋㅏㅈㅣㄴㅗ ㅂㅗㄴㅓㅅㅡ 코드 LUCKY7",
+      "technique": "OFFSCREEN"
+    },
+    {
+      "id": "a_012",
+      "url": "http://localhost:8000/view.html?id=4",
+      "is_violation": true,
+      "location": "article.post-body div.bd-none",
+      "evidence_text": "무료 슬롯 체험 바로가기",
+      "technique": "OFFSCREEN"
+    },
+    {
+      "id": "a_013",
+      "url": "http://localhost:8000/view.html?id=4",
+      "is_violation": true,
+      "location": "ul.cmt-list li:nth-of-type(1) span.cmt-wh",
+      "evidence_text": "먹튀검증 안전놀이터 상담 텔레그램 @promo_777",
+      "technique": "TRANSPARENT"
+    },
+    {
+      "id": "a_014",
+      "url": "http://localhost:8000/view.html?id=5",
+      "is_violation": true,
+      "location": "article.post-body span.dyn-zero",
+      "evidence_text": "무료 슬롯 체험 바로가기",
+      "technique": "OFFSCREEN"
+    },
+    {
+      "id": "n_001",
+      "url": "http://localhost:8000/index.html",
+      "is_violation": false,
+      "location": "p.legal-visible",
+      "evidence_text": "불법 도박 예방 및 신고 안내",
+      "technique": null
+    },
+    {
+      "id": "n_002",
+      "url": "http://localhost:8000/index.html",
+      "is_violation": false,
+      "location": "div.legal-hidden",
+      "evidence_text": "불법 도박 예방 및 신고 안내",
+      "technique": null
+    },
+    {
+      "id": "n_003",
+      "url": "http://localhost:8000/index.html",
+      "is_violation": false,
+      "location": "a.sr-only",
+      "evidence_text": "본문 바로가기",
+      "technique": null
+    },
+    {
+      "id": "n_004",
+      "url": "http://localhost:8000/index.html",
+      "is_violation": false,
+      "location": "a.visually-hidden",
+      "evidence_text": "메뉴 건너뛰기",
+      "technique": null
+    },
+    {
+      "id": "n_005",
+      "url": "http://localhost:8000/index.html",
+      "is_violation": false,
+      "location": "a.dd-link-civil",
+      "evidence_text": "민원서비스",
+      "technique": null
+    },
+    {
+      "id": "n_006",
+      "url": "http://localhost:8000/index.html",
+      "is_violation": false,
+      "location": "a.dd-link-policy",
+      "evidence_text": "정책정보",
+      "technique": null
+    },
+    {
+      "id": "n_007",
+      "url": "http://localhost:8000/index.html",
+      "is_violation": false,
+      "location": "p.campaign-1336",
+      "evidence_text": "도박 근절 캠페인 상담센터 1336",
+      "technique": null
+    },
+    {
+      "id": "n_008",
+      "url": "http://localhost:8000/index.html",
+      "is_violation": false,
+      "location": "ul.notice-list li:nth-of-type(1) a",
+      "evidence_text": "2026년 하반기 정기 점검 일정 안내",
+      "technique": null
+    },
+    {
+      "id": "n_009",
+      "url": "http://localhost:8000/board.html",
+      "is_violation": false,
+      "location": "a.sr-only",
+      "evidence_text": "본문 바로가기",
+      "technique": null
+    },
+    {
+      "id": "n_010",
+      "url": "http://localhost:8000/view.html?id=1",
+      "is_violation": false,
+      "location": "div.legal-hidden",
+      "evidence_text": "불법 도박 예방 및 신고 안내",
+      "technique": null
+    }
+  ]
+}

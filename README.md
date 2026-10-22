@@ -8,6 +8,7 @@
 AdSentinel/
 ├─ frontend/        React + TypeScript + Vite 실시간 대시보드
 ├─ backend-spring/  Spring Boot + Java Playwright 크롤러/API
+├─ Detection_Engine/ 탐지 CLI 배포 위치 및 계약 문서
 ├─ docs/             협업 문서
 ├─ output/           로컬 실행 결과 폴더
 └─ .gitignore
@@ -72,22 +73,21 @@ POST /api/crawl/{jobId}/stop
 
 ## 탐지 상태
 
-모델 연결 전에는 규칙 기반 후보 리포트로 처리합니다.
+Python detector CLI 연결 후에는 Spring이 전체 크롤링 완료 뒤 CLI를 한 번 호출합니다. Gemini API 키가 없으면 Python 엔진의 규칙 판정으로 동작하고, `.env`에 키가 있으면 애매한 후보에 선택적으로 AI 판정을 수행합니다.
 
 ```text
-report_type: candidate_detection_report
-model_status: not_connected
-review_required: true
+report_type: detection_report
+model_status: python_cli_connected
+review_required: false
 ```
 
-팀원 모델은 `Detector` 인터페이스를 구현하거나 REST 어댑터로 연결합니다. 모델 연결 후 확정된 결과만 제출용 `result.json`에 사용합니다.
+팀원 모델은 `Detection_Engine/detector_cli.exe`로 배치합니다. 개발 시에는 `detector_cli.py`를 사용합니다. B는 전체 크롤링 후 `elements.json`을 작성하고 CLI를 한 번 실행합니다. CLI가 `result.json`을 생성하며 B는 해당 파일을 다시 작성하지 않습니다.
 
 ## 출력 파일
 
 백엔드 기준 `backend-spring/output/`에 다음 파일이 생성됩니다.
 
 - `result.json`: 공모전 제출용 결과
-- `result_extra.json`: 추가 결과
 - `report.json`: 후보/확정 리포트, 기법별 통계, 탐색 종료 사유
 
 원문과 결과 JSON에는 사이트 데이터가 포함될 수 있으므로 Git에 커밋하지 않습니다.

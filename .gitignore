@@ -12,9 +12,13 @@ frontend/tsconfig.tsbuildinfo
 backend-spring/target/
 backend-spring/.idea/
 backend-spring/output/*.json
+backend-spring/output/*.jsonl
 output/*.json
 *.log
 .env
 .env.*
 !.env.example
 _guideline.txt
+Detection_Engine-upstream/
+Detection_Engine/**/.env
+Detection_Engine/**/cli-smoke-output*/

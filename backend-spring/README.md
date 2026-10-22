@@ -10,7 +10,7 @@ Spring Boot 3 + Java Playwright 기반의 웹 탐색·DOM/CSS 수집 서버입�
 - 실시간 탐색 상태·로그·스크린샷 제공
 - 규칙 기반 후보 탐지
 - 팀원 탐지 모델 연동 지점 제공
-- `result.json`, `result_extra.json`, `report.json` 저장
+- Python `detector_cli`가 `result.json`을 저장하고 Spring이 `report.json`을 저장
 
 ## 실행 환경
 
@@ -52,16 +52,25 @@ http://127.0.0.1:8080
 
 ## 탐지 모델 연동
 
-현재 `MockDetector`는 모델 연결 전 후보 생성용입니다. 팀원 모델은 `Detector` 인터페이스를 구현하거나 REST 어댑터로 연결합니다.
+탐지 모델은 Python CLI(`detector_cli`)를 Java `ProcessBuilder`로 호출합니다. `MockDetector`는 연동 경로에서 사용하지 않습니다.
 
-모델 연결 전 결과는 `candidate_detection_report`이며, 최종 제출 전에는 모델 확정 결과만 `result.json`에 포함해야 합니다.
+크롤링 중에는 페이지별 탐지 호출을 하지 않습니다. 전체 크롤링이 끝나면 다음 순서로 한 번만 실행합니다.
+
+```text
+output/elements.json
+  → detector_cli.exe --input ... --out-dir ... --cancel-file ... --deadline-sec ...
+  → output/result.json
+```
+
+기본 CLI 경로는 `Detection_Engine/detector_cli.py`이며 `detector.cli.path`로 변경할 수 있습니다. 배포 시 같은 위치의 `detector_cli.exe`를 사용하며, `.env`와 API 키는 저장소에 커밋하지 않고 `.env.example`만 공유합니다.
+
+CLI 연결 후 `detection_report`가 생성되며, A가 작성한 strict schema `result.json`을 최종 결과로 사용합니다.
 
 ## 출력
 
 실행 위치 기준 `output/`에 다음 파일이 생성됩니다.
 
 - `result.json`: 공모전 제출 형식
-- `result_extra.json`: 추가 결과
 - `report.json`: 후보 수, 기법별 통계, 종료 사유, 모델 연결 상태
 
 생성 결과 파일은 `.gitignore`로 제외합니다. 개인정보나 사이트 원문이 포함될 수 있으므로 Git에 올리지 않습니다.

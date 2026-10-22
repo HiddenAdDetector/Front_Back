@@ -13,12 +13,6 @@ public class ResultWriter {
     private final ObjectMapper mapper;
     public ResultWriter(ObjectMapper mapper) { this.mapper = mapper; }
 
-    public void write(SubmissionResult result, java.util.List<Finding> extraFindings) throws IOException {
-        Files.createDirectories(Path.of("output"));
-        mapper.writerWithDefaultPrettyPrinter().writeValue(Path.of("output/result.json").toFile(), result);
-        mapper.writerWithDefaultPrettyPrinter().writeValue(Path.of("output/result_extra.json").toFile(), new SubmissionResult(result.meta(), extraFindings));
-    }
-
     public void writeReport(Map<String, Object> report) throws IOException {
         Files.createDirectories(Path.of("output"));
         mapper.writerWithDefaultPrettyPrinter().writeValue(Path.of("output/report.json").toFile(), report);

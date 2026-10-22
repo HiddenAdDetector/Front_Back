@@ -1,0 +1,36 @@
+{
+  "entry_url": "https://www.example.go.kr/notice",
+  "started_at": "2026-10-22T09:00:00+09:00",
+  "elements": [
+    {
+      "url": "https://www.example.go.kr/notice?id=17",
+      "location": "main > section.notice > span.promo",
+      "framePath": "https://www.example.go.kr/widgets/banner",
+      "text": "ㅋㅏㅈㅣㄴㅗ ㅂㅗㄴㅓㅅㅡ",
+      "context": "게시판 배너",
+      "style": {
+        "opacity": "0",
+        "ancestorOpacity": "1",
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "effectiveBackground": "rgb(255, 255, 255)",
+        "fontSize": "14px",
+        "display": "block",
+        "visibility": "visible",
+        "position": "static"
+      },
+      "bbox": {"x": 20, "y": 120, "width": 180, "height": 22},
+      "visible": false,
+      "hiddenReasons": ["opacity"],
+      "frameUrl": "https://www.example.go.kr/widgets/banner"
+    },
+    {
+      "url": "https://www.example.go.kr/notice?id=17",
+      "location": "main > p.info",
+      "text": "민원실 운영시간 변경 안내",
+      "style": {"display": "block", "fontSize": "16px"},
+      "bbox": {"x": 20, "y": 180, "width": 260, "height": 24},
+      "visible": true
+    }
+  ]
+}

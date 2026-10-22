@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>게시글 보기 - 공공서비스 통합 포털</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hd"><h1><a href="index.html" style="color:#fff;text-decoration:none">공공서비스 통합 포털</a></h1></header>
+<nav class="gnb">
+  <ul>
+    <li class="gnb-item"><a href="board.html">공지사항</a></li>
+    <li class="gnb-item"><a href="index.html">홈</a></li>
+  </ul>
+</nav>
+<main class="wrap">
+  <div class="legal-hidden">불법 도박 예방 및 신고 안내</div>
+  <h2 class="post-title"></h2>
+  <div class="post-meta"></div>
+  <article class="post-body"></article>
+  <section class="cmt-box">
+    <h3>댓글</h3>
+    <ul class="cmt-list"></ul>
+  </section>
+  <p><a href="board.html">&laquo; 목록으로</a></p>
+</main>
+<footer class="ft"><p>대표전화 1234-5678</p></footer>
+<script>
+(function () {
+  var posts = {
+    1: { title: '2026년 하반기 정기 점검 일정 안내', date: '2026-10-01',
+         body: '<p>시스템 안정화를 위해 정기 점검을 실시합니다.</p><p class="bd-ghost">먹튀검증 안전놀이터 상담 텔레그램 @promo_777</p><p>이용에 참고하시기 바랍니다.</p>',
+         comments: ['<li>확인했습니다.</li>', '<li>점검 시간이 어떻게 되나요?</li>'] },
+    2: { title: '민원 처리 기한 단축 시행 안내', date: '2026-09-28',
+         body: '<p>민원 처리 기한이 단축됩니다. 자세한 내용은 공지를 확인해 주세요.</p>',
+         comments: ['<li>좋은 소식이네요.</li>', '<li>감사합니다. <span class="cmt-off">무료 슬롯 체험 바로가기</span></li>', '<li>문의드립니다.</li>'] },
+    3: { title: '개인정보 처리방침 개정 안내', date: '2026-09-20',
+         body: '<p>개인정보 처리방침이 개정되었습니다.</p><span class="mix-hid">ㅋㅏㅈㅣㄴㅗ ㅂㅗㄴㅓㅅㅡ 코드 LUCKY7</span>',
+         comments: ['<li>확인했습니다.</li>'] },
+    4: { title: '시스템 이용 관련 자주 묻는 질문', date: '2026-09-11',
+         body: '<p>자주 묻는 질문을 안내드립니다.</p><div class="bd-none">무료 슬롯 체험 바로가기</div>',
+         comments: ['<li>도움이 됐습니다. <span class="cmt-wh">먹튀검증 안전놀이터 상담 텔레그램 @promo_777</span></li>', '<li>감사합니다.</li>'] },
+    5: { title: '공공데이터 개방 확대 계획', date: '2026-09-02',
+         body: '<p>공공데이터 개방 범위를 확대합니다.</p>',
+         comments: ['<li>기대됩니다.</li>'] }
+  };
+  var id = parseInt(new URLSearchParams(location.search).get('id') || '1', 10);
+  var post = posts[id] || posts[1];
+  document.querySelector('.post-title').innerHTML = post.title;
+  document.querySelector('.post-meta').textContent = '작성자 관리자 | 등록일 ' + post.date;
+  document.querySelector('.post-body').innerHTML = post.body;
+  document.querySelector('.cmt-list').innerHTML = post.comments.join('');
+
+  // id=5: 스크립트가 요소를 직접 생성해 본문에 삽입한다.
+  if (id === 5) {
+    var el = document.createElement('span');
+    el.className = 'dyn-zero';
+    el.textContent = '무료 슬롯 체험 바로가기';
+    document.querySelector('.post-body').appendChild(el);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; background: #ffffff; color: #222222; font-size: 15px; line-height: 1.6; }
+a { color: #134f9e; }
+.hd { background: #0b3b7a; color: #ffffff; padding: 14px 24px; }
+.hd h1 { margin: 0; font-size: 20px; }
+.gnb { background: #134f9e; }
+.gnb > ul { list-style: none; margin: 0; padding: 0 24px; display: flex; }
+.gnb-item { position: relative; }
+.gnb-item > a { display: block; color: #ffffff; padding: 10px 18px; text-decoration: none; }
+.dropdown { display: none; position: absolute; top: 100%; left: 0; background: #ffffff; border: 1px solid #cccccc; list-style: none; margin: 0; padding: 6px 0; min-width: 120px; }
+.dropdown a { display: block; padding: 4px 14px; color: #222222; text-decoration: none; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 20px 24px; }
+.wrap h2 { border-bottom: 2px solid #0b3b7a; padding-bottom: 6px; }
+.notice-list { list-style: none; padding: 0; margin: 0 0 16px; }
+.notice-list li { border-bottom: 1px solid #e3e3e3; padding: 6px 0; }
+.notice-list .date { float: right; color: #777777; }
+.frame-box { width: 100%; height: 220px; border: 1px solid #cccccc; }
+.ft { background: #f1f3f6; color: #555555; padding: 16px 24px; margin-top: 30px; font-size: 13px; }
+.board-table { width: 100%; border-collapse: collapse; }
+.board-table th, .board-table td { border-bottom: 1px solid #dddddd; padding: 8px 6px; text-align: left; }
+.board-table thead th { background: #f1f3f6; }
+.pager { margin-top: 16px; text-align: center; }
+.pager a { display: inline-block; padding: 2px 10px; border: 1px solid #cccccc; text-decoration: none; margin: 0 2px; }
+.post-meta { color: #777777; font-size: 13px; margin-bottom: 12px; }
+.post-body { min-height: 100px; border-top: 1px solid #dddddd; border-bottom: 1px solid #dddddd; padding: 14px 4px; }
+.cmt-box { background: #ffffff; margin-top: 18px; }
+.cmt-list { list-style: none; padding: 0; margin: 0; }
+.cmt-list li { background: #ffffff; border-bottom: 1px solid #eeeeee; padding: 6px 0; }
+
+/* 접근성 보조 텍스트 (정상 요소) */
+.sr-only, .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.legal-hidden { display: none; }
+
+/* 숨김 기법별 스타일 */
+.nl-ghost { opacity: 0; }
+.bd-ghost { opacity: 0; }
+.fr-ghost { opacity: 0; }
+.ct-clear { color: transparent; }
+.cmt-wh { color: #ffffff; }
+.cmt-off { position: absolute; left: -9999px; }
+.mix-hid { position: absolute; left: -9999px; }
+.fr2-off { position: absolute; left: -9999px; }
+.bd-none { display: none; }
+.fs-zero { font-size: 0; }
+.dyn-zero { font-size: 0; }

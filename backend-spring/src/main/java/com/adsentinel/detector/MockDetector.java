@@ -2,7 +2,6 @@ package com.adsentinel.detector;
 
 import com.adsentinel.crawler.ElementRecord;
 import com.adsentinel.result.Finding;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +9,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-@Component
 public class MockDetector implements Detector {
     private static final Set<Integer> CONFUSABLES = Set.of(
             0x0430, 0x0435, 0x043E, 0x0440, 0x0441, 0x0445, 0x0455,
