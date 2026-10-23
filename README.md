@@ -33,6 +33,12 @@ AdSentinel/
 
 ## 실행 방법
 
+### 제출용 통합 실행
+
+`submission/AdSentinel` 폴더에서 `START.bat`을 실행하면 내장 서버와 화면이 함께 시작됩니다. 별도의 Node.js, Python, Java 설치는 필요하지 않습니다. 탐지 완료 후 `result.json`은 `START.bat`과 같은 폴더에 생성됩니다.
+
+개발 환경에서는 아래 방법을 사용합니다.
+
 백엔드:
 
 ```powershell
@@ -85,7 +91,7 @@ review_required: false
 
 ## 출력 파일
 
-백엔드 기준 `backend-spring/output/`에 다음 파일이 생성됩니다.
+제출용 통합 실행에서는 `START.bat`과 같은 폴더에 다음 파일이 생성됩니다.
 
 - `result.json`: 공모전 제출용 결과
 - `report.json`: 후보/확정 리포트, 기법별 통계, 탐색 종료 사유

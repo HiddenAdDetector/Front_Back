@@ -208,7 +208,7 @@ def test_max_calls_skips_remaining_batches(monkeypatch, tmp_path) -> None:
 
 
 def test_error_logs_and_output_never_contain_api_key(monkeypatch, tmp_path, capsys) -> None:
-    dummy_key = "AIzaFakeSecretThatMustNeverAppearAnywhere12345"
+    dummy_key = "test-api-key-not-a-secret"
     client = _install_fake(
         monkeypatch,
         tmp_path,

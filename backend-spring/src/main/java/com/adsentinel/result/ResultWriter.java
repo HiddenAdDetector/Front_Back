@@ -13,8 +13,8 @@ public class ResultWriter {
     private final ObjectMapper mapper;
     public ResultWriter(ObjectMapper mapper) { this.mapper = mapper; }
 
-    public void writeReport(Map<String, Object> report) throws IOException {
-        Files.createDirectories(Path.of("output"));
-        mapper.writerWithDefaultPrettyPrinter().writeValue(Path.of("output/report.json").toFile(), report);
+    public void writeReport(Map<String, Object> report, Path outputDir) throws IOException {
+        Files.createDirectories(outputDir);
+        mapper.writerWithDefaultPrettyPrinter().writeValue(outputDir.resolve("report.json").toFile(), report);
     }
 }

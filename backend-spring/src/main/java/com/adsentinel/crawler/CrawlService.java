@@ -5,6 +5,7 @@ import com.adsentinel.result.Finding;
 import com.adsentinel.result.ResultWriter;
 import com.adsentinel.result.SubmissionResult;
 import com.microsoft.playwright.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.net.URI;
@@ -27,16 +28,19 @@ public class CrawlService {
     private final Map<String, Future<?>> tasks = new ConcurrentHashMap<>();
     private final DetectorCliService detectorCli;
     private final ResultWriter resultWriter;
+    private final Path submissionDir;
 
-    public CrawlService(DetectorCliService detectorCli, ResultWriter resultWriter) {
+    public CrawlService(DetectorCliService detectorCli, ResultWriter resultWriter,
+                        @Value("${submission.output.dir:.}") String submissionOutputDir) {
         this.detectorCli = detectorCli;
         this.resultWriter = resultWriter;
+        this.submissionDir = Path.of(submissionOutputDir).toAbsolutePath().normalize();
     }
 
     public String start(String url) {
         String id = UUID.randomUUID().toString();
         Map<String, Object> job = new ConcurrentHashMap<>();
-        Path cancelFile = Path.of("output", id + ".cancel").toAbsolutePath();
+        Path cancelFile = submissionDir.resolve(".adsentinel-work").resolve(id + ".cancel");
         job.put("status", "queued"); job.put("url", url); job.put("progress", Map.of());
         job.put("detector_status", "not_started");
         job.put("cancel_file", cancelFile.toString()); job.put("deadline_sec", CRAWL_DEADLINE_SEC);
@@ -78,7 +82,8 @@ public class CrawlService {
         String host = URI.create(entryUrl).getHost();
 
         try (Playwright playwright = Playwright.create()) {
-            Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
+            Browser browser = playwright.chromium().launch(
+                    new BrowserType.LaunchOptions().setHeadless(true).setChannel("msedge"));
             BrowserContext context = browser.newContext();
             try {
                 while (!queue.isEmpty() && visited.size() < MAX_PAGES &&
@@ -122,7 +127,7 @@ public class CrawlService {
             job.put("detector_status", "waiting");
             job.put("progress", progress(visited.size(), queue.size(), failures.size(), elements.size(), "", null, "detector_waiting"));
             int remainingDetectorSec = Math.max(1, (int) Duration.between(Instant.now(), deadline).toSeconds());
-            Path outDir = Path.of("output").toAbsolutePath();
+            Path outDir = submissionDir;
             job.put("detector_status", "running");
             job.put("progress", progress(visited.size(), queue.size(), failures.size(), elements.size(), "", null, "detector_running"));
             SubmissionResult result = detectorCli.runOnce(entryUrl, started.toString(), elements, remainingDetectorSec, outDir, cancelFile,
@@ -130,7 +135,7 @@ public class CrawlService {
             List<Finding> findings = deduplicate(result.findings());
             Instant finished = Instant.now();
             Map<String, Object> report = buildReport(entryUrl, started, finished, visited, failures, elements, findings, stopReason);
-            resultWriter.writeReport(report);
+            resultWriter.writeReport(report, submissionDir);
             addLog(job, "DONE", "전체 탐색 완료: " + visited.size() + "개 페이지");
             job.put("detector_status", "completed");
             job.put("result", result); job.put("report", report); job.put("findings", findings); job.put("progress", progress(visited.size(), queue.size(), failures.size(), elements.size(), "", null, "detector_completed"));

@@ -194,7 +194,7 @@ def test_missing_key_does_not_use_ai_and_stdout_is_jsonl(tmp_path: Path) -> None
 
 
 def test_dummy_key_never_appears_in_stdout_stderr_or_log(tmp_path: Path) -> None:
-    dummy_key = "AIzaTHIS_IS_A_DUMMY_SECRET_1234567890"
+    dummy_key = "test-api-key-not-a-secret"
     completed = _run_cli(
         "--input",
         SAMPLE_PATH,

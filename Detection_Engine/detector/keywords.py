@@ -27,6 +27,7 @@ GAMBLING_KEYWORDS: tuple[str, ...] = (
     "배팅",
     "베팅",
     "잭팟",
+    "casino",
 )
 
 ADULT_KEYWORDS: tuple[str, ...] = (

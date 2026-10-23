@@ -5,7 +5,7 @@ type Report = { report_type: string; model_status: string; review_required: bool
 type Progress = Record<string, unknown>
 type Job = { status: string; url: string; progress?: Progress; logs?: string[]; findings?: Finding[]; result?: { findings: Finding[] }; report?: Report; detector_status?: string; error?: string }
 
-const API = 'http://127.0.0.1:8080/api'
+const API = '/api'
 
 export default function App() {
   const [url, setUrl] = useState('https://example.com')

@@ -22,3 +22,4 @@ _guideline.txt
 Detection_Engine-upstream/
 Detection_Engine/**/.env
 Detection_Engine/**/cli-smoke-output*/
+submission/

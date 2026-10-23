@@ -43,7 +43,7 @@ def test_loads_env_from_runtime_directory(monkeypatch, tmp_path: Path) -> None:
 
 
 def test_log_masks_api_key_everywhere(monkeypatch, tmp_path: Path) -> None:
-    dummy_key = "AIzaThisIsAFakeKeyThatMustNeverAppear12345"
+    dummy_key = "test-api-key-not-a-secret"
     settings = ai_judge.GeminiSettings(dummy_key, "test-model", 1, 1, 1, 0.7)
     monkeypatch.setattr(ai_judge, "_runtime_dir", lambda: tmp_path)
 
